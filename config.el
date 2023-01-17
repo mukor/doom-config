@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-(setq user-full-name "John Doe"
-      user-mail-address "john@doe.com")
+(setq user-full-name "Spencer Brooks"
+      user-mail-address "spencer.j.brooks@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -21,8 +21,8 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
-;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
+(setq doom-font (font-spec :family "Hack Nerd Font" )
+      doom-variable-pitch-font (font-spec :family "Hack Nerd Font Mono"))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -74,3 +74,25 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;; Set the Latex preview pain viewers...this doesn't seem to be working
+(setq +latex-viewers '(zathura pdf-tools evince okular skim sumatrapdf))
+;;(setq org-format-latex-options (plist-put org-format-latex-options :scale 1.5))
+
+;; The config below seemed to help the Latex images get sized correctly because
+;; they are now SVG
+(setq org-preview-latex-default-process 'dvisvgm)
+
+;; Remove the emphsis markers in org files
+(setq org-hide-emphasis-markers t)
+
+;; Show entities as UTF8 characters
+(setq org-pretty-entities t)
+
+;; some org mode stuff
+(use-package! org-fragtog
+        :after org
+        :hook (org-mode . org-fragtog-mode) ; this auto-enables it when you enter an org-buffer, remove if you do not want this
+        :config
+;; whatever you want
+)
