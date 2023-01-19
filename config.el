@@ -22,7 +22,7 @@
 ;; accept. For example:
 ;;
 (setq doom-font (font-spec :family "Hack Nerd Font" )
-      doom-variable-pitch-font (font-spec :family "Hack Nerd Font Mono"))
+     doom-variable-pitch-font (font-spec :family "Hack Nerd Font Mono"))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -41,7 +41,9 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
-
+(after! org
+  (setq org-roam-directory "~/roam/")
+  (setq org-roam-index-file "~/roam/index.org/"))
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
@@ -88,6 +90,10 @@
 
 ;; Show entities as UTF8 characters
 (setq org-pretty-entities t)
+
+;; Not sure why I need this but it's to fix the issue with roam graph not working
+;; I also had to install graphviz
+(setq org-roam-graph-executable "dot")
 
 ;; some org mode stuff
 (use-package! org-fragtog
