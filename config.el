@@ -102,3 +102,10 @@
         :config
 ;; whatever you want
 )
+
+;; some org-journal stuff  don't know if I need
+(setq org-journal-date-prefix "#+TITLE: "
+      org-journal-time-prefix "* "
+      org-journal-date-format "%a, %Y-%m-%d"
+      org-journal-file-format "%Y-%m-%d-journal.org"
+      org-journal-dir "~/journal")
